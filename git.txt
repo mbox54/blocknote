@@ -22,3 +22,10 @@ git push -u origin main
 git status
 
 2) append new files (if exist)
+git add .
+
+3) commit
+git commit -m "add files"
+
+4) send
+git push
