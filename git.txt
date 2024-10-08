@@ -1,0 +1,24 @@
+***) copy source to new remote network git:
+1) create network new rep
+
+2) create local git with:
+git init
+
+// (git add README.md)
+git commit -m "first commit"
+git branch -M main
+
+// bind remote link address
+git remote add origin https://github.com/mbox54/blocknote.git
+
+3) add local dir files
+git add .
+
+4) send to remote git
+git push -u origin main
+
+***) update git data
+1) show updates
+git status
+
+2) append new files (if exist)
