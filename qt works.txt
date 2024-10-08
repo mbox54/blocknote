@@ -1,0 +1,8 @@
+*** convert between QString and QByteArray in Qt
+
+QString str("Hello World"); 
+QByteArray bytes = str.toUtf8(); // QString to QByteArray method 1
+  
+QString str("Hello World"); 
+************************************************************
+

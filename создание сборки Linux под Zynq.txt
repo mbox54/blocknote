@@ -1,0 +1,37 @@
+Создание сборки линука для Xilinx Zynq
+
+- установка unzip
+sudo apt-get install unzip
+
+- установка Java
+sudo apt-get install openjdk-8-jdk
+
+- подключить образ диска Xilinx_Vivado_SDK
+sudo mkdir /media/iso
+sudo mount -o loop Xilinx_Vivado_SDK_2017_4.iso /media/iso
+
+- установить Vivado
+cd /media/iso
+sudo ./xsetup
+sudo umount /media/iso
+
+- установить поддержку git
+sudo apt-get install git curl zlib1g-dev libssl-dev
+
+- скопировать ресурсы для сборки 
+(общая информация здесь - 
+https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/460653138/Xilinx+Open+Source+Linux)
+
+git clone https://github.com/Xilinx/linux-xlnx.git
+git clone https://github.com/Xilinx/u-boot-xlnx.git
+git clone https://github.com/Xilinx/device-tree.git
+
+- скачать ramdisk
+адрес: место *
+https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842473/Build+and+Modify+a+Rootfs
+адрес: файл *
+https://xilinx-wiki.atlassian.net/wiki/download/attachments/18842473/arm_ramdisk.image.gz?version=1&modificationDate=1536675884034&cacheVersion=1&api=v2
+название: arm_ramdisk.image.gz
+
+- скопировать arm_ramdisk.image.gz в каталог линукса home/user
+(можно через файловую систему, если установлена WSL)

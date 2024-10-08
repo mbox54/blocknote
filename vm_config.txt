@@ -1,0 +1,5 @@
+Then, I remembered that I wanted to set up macOS via VirtualBox and that I needed to run the following command in cmd:
+bcdedit /set hypervisorlaunchtype off
+
+After executing the command below:
+bcdedit /set hypervisorlaunchtype auto

@@ -1,0 +1,33 @@
+Creating Petalinux2017.4 distro for Zynq7010 Ebaz4205
+
+1) download Ubuntu
+name: Ubuntu16.04.6LTS (AMD64)
+- install it on virtual machine.
+
+2) download Petalinux
+name: petalinux-v2017.4-final-installer.run
+(7.86GB single file)
+
+3) Install dependent packages for Petalinux on Ubuntu.
+- run command:
+sudo apt install make net-tools libncurses-dev libncurses-dev zlib1g:i386 flex libssl-dev bison libselinux1 gnupg wget diffstat chrpath socat xterm autoconf libtool tftpd unzip texinfo zlib1g-dev gcc-multilib build-essential gzip pax screen gawk tofrodos xvfb python git libsdl1.2-dev libglib2.0-dev
+
+4) create folder for petalinux 
+sudo mkdir ~/peta
+sudo chmod 775 ~/peta
+
+5) Install Petalinux
+- add exec permission
+sudo chmod +x petalinux-v2017.4-final-installer.run
+
+- install
+./petalinux-v2017.4-final-installer.run ~/peta
+
+6) Petalinux project construction process
+
+Note: It is assumed that you have installed the Petalinux2017.4 environment.
+
+Note: Please ensure that you always execute the "source settings.sh" operation before opening the Terminal and running the "petalinux-xxx" command every time. You need to perform this operation again every time you open Terminal.
+
+Note: The sample directory in this article is under /home/wind/ (my user name is wind), and subsequent examples are based on this path.
+

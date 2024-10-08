@@ -1,0 +1,10 @@
+maximum degug info = -O0 -g3
+
+-O:
+optimisation level
+-O0 = no optimisation.
+
+-g:
+Level 3 includes extra information, such as all the macro definitions present in the program. Some debuggers support macro expansion when you use -g3.
+The broader answer is that gcc supports four levels of debug information, from -g0 (debug information disabled) through -g3 (maximum debug information).
+(-g = derfault level -g2)

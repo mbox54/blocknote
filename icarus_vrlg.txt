@@ -1,0 +1,3 @@
+>iverilog -o qqq counter.v tcounter.v
+>vvp qqq
+>gtkwave out.vcd

@@ -1,0 +1,126 @@
+module regmap 
+/* parameters */
+/// \note: register map: 128 reg with 32bit data
+#(
+	parameter DATA_WIDTH = 16,
+	parameter ADDR_WIDTH = 8,
+)
+/* signals */
+(
+	/* [IN] */
+	// data
+	input [DATA_WIDTH - 1 : 0] data_in,	
+	input [ADDR_WIDTH - 1 : 0] address,
+	// manage	
+	input we,
+	
+	// service
+	input clk,
+	input rst,
+	
+	/* [OUT] */
+	output data_out
+);
+
+/* properties */
+reg [DATA_WIDTH - 1 : 0] register_map[0 : 2 ** ADDR_WIDTH - 1];
+
+/* processes */
+// reset operation
+always @ (posedge clk) begin
+	if (~rst) begin
+		// set defaults
+		register_map[0] <= 10;
+		register_map[1] <= 20;
+		register_map[2] <= 30;
+		register_map[3] <= 40;
+		register_map[4] <= 50;
+		register_map[5] <= 60;
+		register_map[6] <= 70;
+		register_map[7] <= 80;
+		
+		for (int i = 9; i < 2 ** ADDR_WIDTH; i = i + 1) begin
+			register_map[i] <= 0;
+		end		
+	end
+end
+
+// write operation
+always @ (posedge clk) begin
+	if (we) begin
+		register_map[address] <= data_in;
+	end
+end
+
+// read operation
+assign data_out = register_map[address];
+
+endmodule
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+/// \brief testbench is a module which only task is to test another module
+/// testbench is for simulation only, not for synthesis
+
+`timescale 1ns/1ns
+module tb_regmap 
+
+// input and output test signals
+reg [31 : 0] data_in;
+reg [7 : 0] address;
+
+reg we;
+reg clk;
+reg rst;
+
+reg [31 : 0] temp_reg;
+// creating the instance of the module we want to test
+regmap dut (data_in, addr, we, clk, rst, data_out);
+
+// do at the beginning of the simulation
+initial begin 
+	// set initial values of signal
+	clk = 0;
+	we = 0;
+	temp_reg = 0;
+	
+	addr = 8’b000000;
+	data_in = 32’d0;
+	
+	// read data from RAM: check data before write
+	#20; we = 1;	
+	for (address = 0; address < 8; addr= addr + 1) begin
+		#20; temp_reg = data_out[addr];		
+		end;	
+	
+	// test write data in RAM: write test
+	#20; we = 0;	
+	for (address = 0; address < 10; address = address + 1) begin
+		#20;
+		data_in = data_in + 1;
+	end
+	
+	// test read data from RAM: test after write
+	#20; we = 1;	
+	for (address = 0; address < 8; addr= addr + 1) begin
+		#20; temp_reg = data_out[addr];		
+		end;
+end	
+		
+// every 10 ns invert clk
+always #10 clk = ~clk;
+
+initial 
+	#300 $finish;
+
+// print signal values on every change
+initial 
+	$monitor("data_in=%b addr=%b we=%b clk=%b data_out=%b
+		addr_out=%b", data_in, addr, we, clk, data_out, addr_out);
+
+initial 
+	$dumpvars;
+
+endmodule
