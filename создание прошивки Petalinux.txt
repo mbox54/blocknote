@@ -16,6 +16,33 @@ sudo apt install make net-tools libncurses-dev libncurses-dev zlib1g:i386 flex l
 sudo mkdir ~/peta
 sudo chmod 775 ~/peta
 
+(better way)
+alinx@ubuntu:~$  sudo -s
+[sudo] password for alinx: 
+root@ubuntu:~# man mkdir 
+root@ubuntu:~# mkdir -p -v /opt/pkg/peta
+mkdir: created directory '/opt/pkg'
+mkdir: created directory '/opt/pkg/peta'
+root@ubuntu:~# chown alinx /opt/pkg/
+root@ubuntu:~# ls -l /opt/pkg
+total 4
+drwxr-xr-x 2 root root 4096 Apr 22 23:14 peta
+root@ubuntu:~# chgrp alinx /opt/pkg/
+root@ubuntu:~# ls -l /opt/pkg
+total 4
+drwxr-xr-x 2 root root 4096 Apr 22 23:14 peta
+root@ubuntu:~# chown alinx /opt/pkg/peta
+root@ubuntu:~# ls -l /opt/pkg
+total 4
+drwxr-xr-x 2 alinx root 4096 Apr 22 23:14 peta
+root@ubuntu:~# chgrp alinx /opt/pkg/peta
+root@ubuntu:~# ls -l /opt/pkg
+total 4
+drwxr-xr-x 2 alinx alinx 4096 Apr 22 23:14 peta
+root@ubuntu:~# exit
+exit
+
+
 5) Install Petalinux
 - add exec permission
 sudo chmod +x petalinux-v2017.4-final-installer.run

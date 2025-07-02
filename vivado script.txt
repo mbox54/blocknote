@@ -1,0 +1,4 @@
+*** usage XPM libraries:
+1) set in tcl console:
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+

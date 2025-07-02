@@ -29,3 +29,22 @@ git commit -m "add files"
 
 4) send
 git push
+
+standalone@DESKTOP-O971B06 MINGW64 /d/project/qt/rep_pish/drfc (main)
+$ git remote -v
+origin  G:/rep/drfc (fetch)
+origin  G:/rep/drfc (push)
+
+standalone@DESKTOP-O971B06 MINGW64 /d/project/qt/rep_pish/drfc (main)
+$ git remote
+origin
+
+standalone@DESKTOP-O971B06 MINGW64 /d/project/qt/rep_pish/drfc (main)
+$ git checkout -b chart
+Switched to a new branch 'chart'
+
+standalone@DESKTOP-O971B06 MINGW64 /d/project/qt/rep_pish/drfc (chart)
+$ git push origin chart
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To G:/rep/drfc
+ * [new branch]        chart -> chart
