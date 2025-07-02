@@ -1,0 +1,4 @@
+Mutex isn't an option to me since it does add a lag to the UI thread.
+
+For anyone interested in how I dealt with this:
+I ended up creating a custom circular buffer with QAtomicInteger write pointer. I preallocate memory so my DataToDisc thread now just acts like a reader (without worrying about the growing list). Readers can never read beyond the write pointer and hence no corrupt data will ever be read. Works well!
