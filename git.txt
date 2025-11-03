@@ -11,19 +11,25 @@ git clone https://github.com/mbox54/blocknote.git
 2) create local git with:
 git init
 
-// (git add README.md)
-git commit -m "first commit"
-// branch may be renamed from master to main...
-git branch -M main
-
-// bind remote link address
+3) bind remote link address
 git remote add origin https://github.com/mbox54/blocknote.git
 
-3) add local dir files
-git add .
+4) update commits from remote
+git pull origin main
 
-4) send to remote git
+5) switch to uploaded branch
+git checkout main
+
+6) add local dir files
+git add .
+git commit -m "add sources"
+
+7) send to remote git
 git push -u origin main
+
+...
+// branch may be renamed from master to main...
+git branch -M main
 ************************************************************
 
 ### task: update git data
