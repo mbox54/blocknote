@@ -1,23 +1,38 @@
-***) copy source to new remote network git:
+### task: copy from remote git to local directory:
+// note: dir with project will be auto created
+// do not create dublicate...
+git clone https://github.com/mbox54/blocknote.git
+************************************************************
+
+### task: copy dir source to new remote network git:
 1) create network new rep
+// note: it creates net address with it
 
 2) create local git with:
 git init
 
-// (git add README.md)
-git commit -m "first commit"
-git branch -M main
-
-// bind remote link address
+3) bind remote link address
 git remote add origin https://github.com/mbox54/blocknote.git
 
-3) add local dir files
-git add .
+4) update commits from remote
+git pull origin main
 
-4) send to remote git
+5) switch to uploaded branch
+git checkout main
+
+6) add local dir files
+git add .
+git commit -m "add sources"
+
+7) send to remote git
 git push -u origin main
 
-***) update git data
+...
+// branch may be renamed from master to main...
+git branch -M main
+************************************************************
+
+### task: update git data
 1) show updates
 git status
 
@@ -29,7 +44,9 @@ git commit -m "add files"
 
 4) send
 git push
+************************************************************
 
+### others...
 standalone@DESKTOP-O971B06 MINGW64 /d/project/qt/rep_pish/drfc (main)
 $ git remote -v
 origin  G:/rep/drfc (fetch)
@@ -48,3 +65,4 @@ $ git push origin chart
 Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
 To G:/rep/drfc
  * [new branch]        chart -> chart
+************************************************************
