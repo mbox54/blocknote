@@ -1,0 +1,4 @@
+1) use windeploy app
+C:\Qt\5.15.2\mingw81_64\bin\windeployqt
+2) use exe from debug
+D:\projects\qt\project1\debug\myproj.exe
