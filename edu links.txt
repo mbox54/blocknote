@@ -1,0 +1,22 @@
+FPGA:
+- Статьи Verilog HDL
+https://docstech.ru/category/docsverilog/
+
+- фазовый накопитель: применение в плис и stm32 и esp32
+https://docstech.ru/fap/
+
+- hdl videos
+https://ya.ru/video/search?channelId=d3d3LnlvdXR1YmUuY29tO1VDYlVlNVNMTVNabFN6Q3VKUDgxbFUwQQ%3D%3D&how=tm&text=LBEbooks
+
+- Подключение АЦП к ПЛИС. Особенности, сложности, реализация
+https://habr.com/ru/articles/313692/
+
+- axi guides
+https://github.com/VSHEV92
+
+Qt:
+- lessons
+https://it.kgsu.ru/Qt/qt0120.html
+
+- Qt. Создание виджета-консоли для графического приложения
+https://habr.com/ru/articles/122831/

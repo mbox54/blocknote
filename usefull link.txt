@@ -1,0 +1,2 @@
+https://markdownvisualizer.vercel.app/markdown-to-word
+https://cloudenv.io/netcat-tutorial/
