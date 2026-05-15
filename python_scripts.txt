@@ -1,0 +1,500 @@
+string = input()
+n = len(string)
+
+i = 0
+while (i < n):
+    print(string[i])
+    i += 1
+    
+######################
+
+word = 'foobar'
+
+string = input()
+if (word in string.lower()) or (word in string.upper()):
+    print('Такое писать нельзя, извините.')
+else:
+    print('Сообщение принято')
+    
+#######################
+
+word = 'поп'
+repl = '[censored]'
+
+string = input()
+if word in string:
+    print(string.replace(word, repl))
+else:
+    print(string)
+    
+#######################
+
+number1 = input('Введите число 1: ')
+
+if not (number1.lstrip('-').replace('.', '', 1).isdigit()):
+    print('Нужно ввести два числа!')
+else:
+    number2 = input('Введите число 2: ')
+    
+    if not (number2.lstrip('-').replace('.', '', 1).isdigit()):
+        print('Нужно ввести два числа!')
+    else:    
+        print(float(number1) + float(number2))
+
+#######################
+
+serial = input()
+if (serial[0].isdigit()) or (len(serial) != 8):
+    print('Такое as Serial писать нельзя, извините.')
+else:
+    print('Serial принято')
+    
+#######################
+
+string = input('Введите lettes: ')
+number = len(string)
+
+if number % 2 == 0:
+    print('Длина строки должна быть нечетной')
+else:
+    print('center letter: ', string[number // 2])
+    
+#######################
+
+string = input('Введите string: ')
+number = len(string)
+
+if number > 15:
+    print(string[:15] + '...')
+else:
+    print(string)
+ 
+#######################
+ 
+string = input('Введите string: ')
+number = string.find("#")
+
+if number != -1:
+    print(string[:number])
+else:
+    print(string)
+
+#######################
+
+string = input('Введите палиндром: ')
+prep = string.lower().replace(' ', '').replace('.', '').replace(',', '', 1)
+
+if prep != prep[::-1]:
+    print('Нет, это не палиндром')
+else:
+    print('Да, это палиндром')
+    
+#######################
+
+import turtle
+from turtle import done as finish
+
+i = 0
+while i <= 3:
+    turtle.forward(i * 100)
+    turtle.left(i * 120)
+    turtle.forward(i * 100)
+    turtle.left(i * 120)
+    turtle.forward(i * 100)
+    
+    i = i + 1
+
+finish()
+
+#######################
+
+string = input('Введите string: ')
+number = len(string)
+
+i = 0
+while number > i:
+    print(string[i])
+    i = i + 1
+    
+#######################
+
+string = input('Введите string: ')
+number = len(string)
+
+for letter in string:
+    print(letter)
+    
+#######################
+
+import turtle
+from turtle import done as finish
+
+for i in range(3, 40):
+    turtle.forward(i * 10)
+    turtle.left(120)
+    turtle.forward(i * 10)
+    turtle.left(120)
+    turtle.forward(i * 10)
+    
+
+finish()
+
+#######################
+
+strcheck = input()
+strcontrol = "аоуэыиеёюя"
+
+counter = 0
+for letter in strcheck:
+    if letter in strcontrol:
+        counter = counter + 1
+        
+print(f"{counter} is x-let number")
+
+#######################
+
+base = int(input('Введите вклад: '))
+percent = int(input('Введите процент: '))
+years = int(input('Введите срок: '))
+
+total = 1.0 * float(base)
+i = 0
+while i < years:
+    total = total * (1 + percent / 100)
+    i = i + 1
+    
+print(f"{total} is you total result")
+
+#######################
+
+number1 = input('Введите число: ')
+
+while not (number1.lstrip('-').replace('.', '', 1).isdigit()):
+    print('Нужно ввести число!')
+    number1 = input('Введите число: ')
+    
+print(f"{number1} is ok.")
+
+#######################
+
+passValid = "qwerty"
+
+for i in range(3):
+    user_input = input('Введите Пароль: ')
+
+    if user_input == passValid:
+        print('Доступ разрешен')
+        break
+    else:
+        print('неправильный пароль!')
+        
+else:
+    print('Доступ запрещен')
+    
+#######################
+
+strcheck = input()
+strcontrol = "аоуэыиеёюя"
+
+
+for letter in strcheck:
+    if letter in strcontrol:
+        continue
+    else:
+        print(letter)
+        
+#######################
+
+from random import randint
+
+value = randint(1, 5)
+
+for i in range(3):
+    user_input = int(input('Введите число: '))
+
+    if user_input == value:
+        print(' угадать !')
+        break
+    else:
+        print('неправильный число!')
+        
+else:
+    print('проиграл') 
+    
+#######################
+
+for i in range(1, 11):
+   lineStr = ""
+   for j in range(1, 11):
+       lineStr = lineStr + str(i * j) + " "
+       
+   print(lineStr)
+   
+#######################
+
+def funct1(strValue, strEraseSigns):
+    for sign in strEraseSigns:
+        strValue = strValue.replace(sign, '', len(strValue))
+        
+    print(strValue)
+        
+strTest = "12345"
+strTest = strTest.replace('1', '', len(strTest))
+print(strTest)
+        
+myInputStr = input('Enter str: ') 
+myInputEraseSigns = input('Enter signs: ') 
+funct1(myInputStr, myInputEraseSigns)
+
+#######################
+
+def checkNumber(strNumber):
+    return strNumber.lstrip('-').replace('.', '', 1).isdigit()
+    
+#######################
+
+import random
+
+def generatePass(parLen = 8, parDict = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"):
+    strPass = ""
+    for i in range(parLen):
+        strPass = strPass + random.choice(parDict)
+        
+    return strPass
+    
+    
+print(generatePass())
+
+#######################
+
+def my(value):
+    return int(value) * 2
+
+
+def convert(function, value):
+    return function(value)
+
+
+convert(int, "10")  # 10
+convert(float, "10")  # 10.0
+convert(my, "10")  # 20
+
+#######################
+
+def convert(function, value):
+    return function(value)
+
+
+convert(int, "10")  # 10
+convert(float, "10")  # 10.0
+convert(lambda x: int(x) * 2, "10")  # 20
+
+#######################
+
+numbers = [1, 2, 3, 4, 5]
+print(len(numbers))
+
+#######################
+
+def get_word_count(str_input):
+    words = str_input.split()
+    return len(words)
+    
+    
+print(get_word_count("qwe   rty asdfg zxcv    b "))
+
+#######################
+
+def limit_text(text_input, word_count):
+    words = text_input.split()
+    
+    if len(words) > word_count:
+        words_lim = words[:word_count]
+        return ' '.join(words_lim) + "..."
+    else:
+        return ' '.join(words)
+        
+
+print(limit_text("qwe rtya sdff  ghzxc   vbn", 4))
+
+#######################
+
+todo_list = []
+while True:
+    str_input = input("write deal: ")
+    
+    if not str_input:
+        break
+    else:
+        todo_list.append(str_input)
+        
+for todo in todo_list:
+    print(todo)
+    
+#######################
+
+str_input = input("write sentence: ")
+str_find = input("write find word: ")
+str_replace = input("write replace word: ")
+
+word_list = str_input.split()
+
+start = 0
+while str_find in word_list:
+    i = word_list.index(str_find, start)
+    word_list[i] = str_replace
+    start = i + 1
+
+print(word_list)
+
+#######################
+
+str_input = input("write sentence: ")
+
+word_list = str_input.split()
+word_list.reverse()
+
+print(' '.join(word_list))
+
+#######################
+
+numbers = (1, 2, 3, 4, 5)
+for number in numbers:
+    print(number)
+    
+#######################
+
+str_input1 = input("var1: ")
+str_input2 = input("var2: ")
+
+str_input2, str_input1 = str_input1, str_input2
+print(str_input1)
+print(str_input2)
+
+#######################
+
+todo_list = []
+while True:
+    str_input = input("write deal: ")
+    
+    if not str_input:
+        break
+    else:
+        todo_list.append(str_input)
+        
+for index, todo in enumerate(todo_list, 1):
+    print(index, todo)
+    
+#######################
+
+def check_integer(str_number):
+    return str_number.lstrip('-').isdigit()
+    
+user_input = input("enter numbers: ")        
+input_list = user_input.split()
+
+numbers = []
+for user_word in input_list:
+    if check_integer(user_word):
+        numbers.append(int(user_word))
+        
+numbers.sort(reverse=True)
+
+print(numbers)
+
+#######################
+
+import data_sandbox
+
+def second_param(tuple_data):
+    return tuple_data[1]
+
+sort_data = data_sandbox.get_students()
+sort_data.sort(key=second_param)
+
+print(sort_data)
+
+#######################
+
+book = {
+    "title": "1984",
+    "author": "Джордж Оруэлл",
+    "year": 1949
+}
+
+for key in book:
+    print(key, '\t:', book[key])
+    
+#######################
+
+a = input('Введите число1: ')
+b = input('Введите число2: ')
+
+try:
+    aa = int(a)
+    bb = int(b)
+    print(aa + bb)
+    
+except ValueError as e:
+    print(f'Нужно ввести два числа!')
+    print(f'Ошибка: {e}')
+    
+#######################
+
+def divide(a, b):
+    #try:
+        return a / b
+    #except ZeroDivisionError:
+        print("На ноль делить нельзя")
+        return None
+
+try:
+    a = int(input("Введите делимое: "))
+    b = int(input("Введите делитель: "))
+    print(divide(a, b))
+except ZeroDivisionError:
+    print("Ошибка деления на ноль")
+    
+#######################
+
+def divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError :
+        print("level0 - На ноль делить нельзя")
+        raise  # Вызовем исключение снова
+try:
+    a = int(input("Введите делимое: "))
+    b = int(input("Введите делитель: "))
+    print(divide(a, b))
+    
+except ZeroDivisionError:
+    print("level1 - Ошибка деления на ноль")
+    
+#######################
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Делитель не может быть равен нулю")
+    return a / b
+
+try:
+    a = int(input("Введите делимое: "))
+    b = int(input("Введите делитель: "))
+    print(divide(a, b))
+    
+except ZeroDivisionError:
+    # Это исключение не возникнет, так как мы его обработали в функции
+    # и вызываем другое исключение
+    print("Ошибка деления на ноль")
+except ValueError:
+    # Это исключение возникнет
+    print("Ошибка значения") 
+    
+#######################
+#######################
+#######################
+#######################
+#######################
+#######################
+
